@@ -14,8 +14,8 @@ app.use(bodyParser.raw({ type: "application/vnd.custom-type" }));
 app.use(bodyParser.text({ type: "text/html" }));
 
 app.get("/", async (req, res) => {
-  const { rows } = await pool.query("SELECT * FROM user");
-  res.send(`${JSON.stringify(rows)}`);
+  const result = await pool.query("SELECT * FROM user");
+  res.send(`${JSON.stringify(result)}`);
 });
 
 app.listen(port, () => {
